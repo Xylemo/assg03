@@ -45,7 +45,10 @@ uint16_t PC_START = 0x3000;
  *   later as something other than an unsigned integer, but this function
  *   simply reads and returns the 16 bits stored at the indicated address.
  */
-// put your implememtation of mem_read() here below it documentation
+uint16_t mem_read(uint16_t address)
+{
+  return mem[address];
+}
 
 /** @brief memory write, transfer to memory
  *
@@ -62,7 +65,10 @@ uint16_t PC_START = 0x3000;
  *   stored where requested, it could actually be a signed number, or an ascii
  *   character, or some other type of data.
  */
-// put your implememtation of mem_write() here below it documentation
+void mem_write(uint16_t address, uint16_t value)
+{
+  mem[address] = value;
+}
 
 /** @brief sign extend bits
  *
