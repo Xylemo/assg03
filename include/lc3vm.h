@@ -18,6 +18,15 @@
 #define NUMOPS (16)
 
 // Need to #define all of your bit manipulation macros like DR, SR1, etc. here.
+
+#define OPC(i) (((i) >> 12) & 0xF)
+#define DR(i) (((i) >> 9) & 0x7)
+#define SR1(i) (((i) >> 6) & 0x7)
+#define SR2(i) ((i) & 0x7)
+#define SEXTIMM(i) sign_extend((i) & 0x1F, 5)
+#define OFF6(i) sign_extend((i) & 0x3F, 6)
+#define PCOFF9(i) sign_extend((i) & 0x1FF, 9)
+#define PCOFF11(i) sign_extend((i) & 0x7FF, 11)
 #define FIMM(i) ((i >> 5) & 0x1)
 #define FCND(i) (((i) >> 9) & 0x7)
 #define BR(i) (((i) >> 6) & 0x7)
