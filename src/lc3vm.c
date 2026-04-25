@@ -118,7 +118,21 @@ uint16_t sign_extend(uint16_t bits, int size)
  *   was just modified by an operation and needs to have the condition code flags
  *   updated as a side effect of the operation just performed.
  */
-// put your implememtation of update_flags() here below it documentation
+void update_flags(uint16_t modified_register)
+{
+  if (reg[modified_register] == 0)
+  {
+    reg[RCND] = FZ;
+  }
+  else if ((reg[modified_register] >> 15))
+  {
+    reg[RCND] = FN;
+  }
+  else
+  {
+    reg[RCND] = FP;
+  }
+}
 
 /** @brief add operation
  *
